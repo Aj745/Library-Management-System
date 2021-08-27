@@ -1,0 +1,79 @@
+﻿@model Library_Management_System.Models.User
+
+@{
+    ViewBag.Title = "LMS";
+    Layout = "~/Views/Shared/_Layoutlogin.cshtml";
+
+}
+
+
+
+<br />
+
+<h1 style="color:white"><i>Library Management System</i> </h1>
+<div class="">
+    <span> </span>
+</div>
+<div class="w3ls-login box box--big">
+    @using (Html.BeginForm("verify", "Home", FormMethod.Post))
+
+    {
+        <div class="agile-field-txt">
+            <label><i class="fa fa-user" aria-hidden="true"></i> Username </label>
+            <input id="username" type="text" name="UserName" placeholder="Enter User Name" required="" />
+        </div>
+        <div class="agile-field-txt">
+            <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> password </label>
+            <input type="password" name="Password" placeholder="Enter Password" required="" id="myInput" />
+            <div class="agile_label ">
+                <input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
+                <label class="check" for="check3">Show password</label>
+                
+                <div class="agile-right">
+                   <br/>
+                    <span class="text" style="color:ghostwhite"><u>@Html.ValidationMessageFor(m => m.Password)</u></span>
+                </div>
+
+            </div>
+        </div>
+        <input style="text-align:center" class="btn-group-sm" id="submit" type="submit" value="LOGIN" ;">
+
+
+
+
+
+
+    }
+</div>
+@*script for show password*@
+
+
+<script>
+
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+
+</script>
+@*end script*@
+<br />
+<br />
+<br/>
+<div>
+    <bottom>
+        <p style="color:white">&copy; @DateTime.Now.Year - Library Management System </p>
+    </bottom>
+
+</div>
+
+
+
+
+
+

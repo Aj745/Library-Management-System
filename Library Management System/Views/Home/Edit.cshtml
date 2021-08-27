@@ -1,0 +1,35 @@
+﻿@model Library_Management_System.Models.tbl_dashbord
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h1 class="fa-3x" style="text-align:center"><u>Library Management System</u></h1>
+<h2 style="color:black; text-align:center" class="fa-2x"><u>Edit Book Details</u></h2>
+<br />
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    <input type="hidden" name="@Model.ID" />
+    <input type="text" class="form-control" name="BookName" id="BookName" value="@Model.BookName"  required />
+    <tb />
+    <input type="text" class="form-control" name="Author" id="Author" value="@Model.Author"placeholder="Enter Author Name" align="center" required />
+    <br />
+    <br />
+    <input type="text" class="form-control" name="IssureName" id="IssureName" value="@Model.IssureName"  placeholder="Enter Issure Name" align="center" required />
+    <tb />
+    <input type="datetime-local" class="form-control" name="DateOfIssue" value="@Model.DateOfIssue" id="DateOfIssue" placeholder="Enter Date Of Issue " align="center" required />
+    <br />
+    <br />
+    <input type="datetime-local" class="form-control" name="DateOfReturn" id="DateOfReturn" value="@Model.DateOfReturn" placeholder="Enter Date Of Return" align="center" required />
+    <tb />
+    <input type="text" class="form-control" name="Fine" id="Fine"  value="@Model.Fine" placeholder="Enter Fine" align="center" required />
+    <br />
+
+    <div class="sample-content" style="text-align:center">
+        <input id="Submit" type="submit" style="background-color:#fd5c63; text-align:center " value=" SAVE" /><br />
+    </div>
+
+}
+

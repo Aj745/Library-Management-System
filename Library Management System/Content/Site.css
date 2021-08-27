@@ -1,0 +1,31 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 1px;
+    padding-right: 15px;
+}
+
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+/*make login page text boxex wide*/
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+textarea {
+    max-width: 280px;
+}
+body {
+    background: green;
+}
+ thead{
+     text-align:center
+ }
+
+

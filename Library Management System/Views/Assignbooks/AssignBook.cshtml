@@ -1,0 +1,88 @@
+﻿@model Library_Management_System.Models.tbl_dashbord
+@{
+    ViewBag.Title = "AssignBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<h1 class="fa-3x" style="text-align:center"><u>Library Management System</u></h1>
+<h2 style="color:black; text-align:center" class="fa-2x"><u>Issue Book</u> </h2>
+
+@using (Html.BeginForm("AssignBook", "Assignbooks", FormMethod.Post))
+{
+<div class="form-row center-block" style="padding-top: 11px;padding-left: 54px;">
+    <div class="form-group col-md-6">
+        <label for="inputEmail4"><b>Books:</b></label>
+        <select class="form-control" id="departmentsDropdown" name="BookName"></select>
+    </div>
+    <br />
+    <div class="form-group col-md-6">
+        <label for="inputEmail4"><b>Author Name:</b></label>
+        <select class="form-control" id="departmentsDropdown1" name="Author"></select>
+
+    </div>
+    <br/>
+    <div class="form-group col-md-6">
+        <label><b>Issuer Name:</b></label>
+        <input type="text" class="form-control" id="IssureName" name="IssureName" placeholder="Issuer Name">
+
+    </div>
+    <br />
+    <div class="form-group col-md-6">
+        <label><b>Date of Issue:</b></label>
+        <input type="datetime-local" class="form-control" id="DateOfIssue" name="DateOfIssue">
+
+    </div>
+    <br />
+</div>
+    <div class="form-row" style="padding-top: 0px;padding-left: 54px;">
+        <div class="form-group col-md-6">
+            <label><b>Date of Return:</b></label>
+            <input type="datetime-local" class="form-control" id="DateOfReturn" name="DateOfReturn">
+        </div>
+        <br />
+        <div class="form-group col-md-6">
+            <label><b>Fine:</b></label>
+            <input type="number" class="form-control" id="Fine" name="Fine" placeholder="Fine">
+            <br />
+            <div class="sample-content" style="padding-top: 0px;padding-left: 224px;">
+                <input id="Submit" type="submit" style="background-color:#fd5c63; text-align:center " value="  Save " /><br />
+            </div>
+        </div>
+        
+       
+    </div>
+    
+   
+
+}
+<script>
+    $(document).ready(function () {
+
+        $.ajax({
+            type: "GET",
+            url: "/Assignbooks/IsueBook",
+            data: '{}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+
+                var s = '<option value="-1">Please Select a Book</option>';
+                for (var i = 0; i < data.length; i++) {
+                    s += '<option value="' + data[i].ID + '">' + data[i].BookName + '</option>';
+                }
+
+                var h = '<option value="-1">Please Select Author </option>';
+                for (var i = 0; i < data.length; i++) {
+                    h += '<option value="' + data[i].ID + '">' + data[i].Author + '</option>';
+                }
+
+                $("#departmentsDropdown").html(s);
+                $("#departmentsDropdown1").html(h);
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    });
+</script>

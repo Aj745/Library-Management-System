@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="fa-3x" style="text-align:center"><u>Library Management System</u></h1>
+
+<h2 style="color:black; text-align:center" class="fa-2x"><u>Add Book</u></h2>
+<br />
+@using (Html.BeginForm("AddBook", "Home", FormMethod.Post))
+{
+   
+
+
+    <div class="form-row center-block" style="padding-top: 4px;padding-left: 84px;">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4"><b> Add Books:</b></label>
+            <input type="text" class="form-control" name="BookName" id="BookName" placeholder="Enter  Book Name" />
+        </div>
+        <br />
+        <div class="form-group col-md-6">
+            <label><b>Author Name:</b></label>
+            <input type="text" class="form-control" name="Author" id="Author" placeholder="Enter Author Name" align="center" />
+
+        </div>
+        <div class="sample-content" style="padding-top: 40px;padding-left: 185px;">
+            <input id="Submit" type="submit" style="background-color:#fd5c63; text-align:center " value="  Add Book " /><br />
+        </div>
+
+    </div>
+}
+
+
+
+
